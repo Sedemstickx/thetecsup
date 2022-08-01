@@ -601,7 +601,7 @@ class User
       $due = $this->block_exp;
 
       if($this->block != 0 && $due != "Indefinite"){
-      $expire = date('Y-m-d H:i:s', strtotime("+". $due . ""));
+      $expire = date('Y-m-d H:i:s', strtotime("+".$due));
       }
       else{
         $expire = "none";

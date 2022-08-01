@@ -85,8 +85,8 @@ $status = $user->block_status($user->block);
       <br>
 <select name="duration" <?php if($user->block == 0){echo "required";} ?>>
   <option value="">Block lifespan</option>
-   <option value="1week">1 week</option> 
-  <option value="1month">1 month</option>
+   <option value="1 week">1 week</option> 
+  <option value="1 month">1 month</option>
    <option value="Indefinite">Indefinite</option>
 </select>
      <br>
