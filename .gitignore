@@ -1,2 +1,7 @@
-uploads/**
+# exclude everything
+uploads/*
 logs/*
+
+# exception to the rule
+!uploads/.gitkeep
+!logs/.gitkeep 
