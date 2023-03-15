@@ -1,2 +1,2 @@
-uploads/
-logs/logs.txt
+uploads/**
+logs/*
