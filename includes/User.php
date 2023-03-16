@@ -747,7 +747,7 @@ class User
       $remove_slash = "";
         
         //if site is in production mode (not needing the 'techsup' dir) strip slash else add slash to development directory.
-        if(dirname($_SERVER['PHP_SELF']) == "/techsup"){ $remove_slash = "/";}else{$remove_slash = "";}
+        if(dirname($_SERVER['PHP_SELF']) == "/thetecsup"){ $remove_slash = "/";}else{$remove_slash = "";}
       
       $admin_access = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a style='text-decoration:none;' class='admin-link' href='". (isset($_SERVER['HTTPS']) ? "https" : "http") ."://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']).$remove_slash."admin/admindash?login=true' target='_blank'>Go to admin</a>";
       }
