@@ -12,11 +12,11 @@ $msg = "";
 
     if($result){
 
-    //Change the name that has been updated if in the login_auth table.
-    $auth = new Auth();
-    $auth->update_name($user_class->username);
+    //get previous auth user name to be changed.
+    $auth_user = Auth::find_username_by_token($cookie_token,0);
 
-       setcookie("tsp_username", stripslashes($user_class->username), time() + (172800 * 365));
+    $auth = new Auth();
+    $auth->update_name($user_class->username,$auth_user->username);
 
       //success
       $session->message("Your profile has been succesfully updated.");

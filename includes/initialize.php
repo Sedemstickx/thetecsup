@@ -22,10 +22,7 @@ $site_title = "thetecsup";
 $admin_home = $_SERVER['HTTP_HOST'] == 'localhost' ? '../home' : '/';
 
 
-//Assign cookie names to be stored in a variable for maintainance.
-if (isset($_COOKIE['tsp_username'])) {
-	$cookie_username = $_COOKIE['tsp_username'];
-}
+//Assign cookie token to be stored in a variable for maintainance.
 
 if (isset($_COOKIE['tsp_token'])) {
 	$cookie_token = $_COOKIE['tsp_token'];
@@ -47,6 +44,11 @@ spl_autoload_register(function ($class_name) {
 require_once $dir_loc.'/Session.php';
 require_once $dir_loc.'/Status.php';
 require_once $dir_loc.'/fb_api.php';
+
+
+//php mailer
+require 'PHPMailer/class.phpmailer.php';
+require 'PHPMailer/class.smtp.php';
 
 
 //home page redirects for public site.

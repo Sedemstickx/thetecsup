@@ -50,7 +50,7 @@ if ($reply == null) {
   send_email($user->email,"Deleted reply",$message);
   
   //Record Admin who deleted the reply.
-  log_action(htmlentities($cookie_username),"deleted the reply -> ".htmlentities($reply->text)."",$logfile = "../logs/logs.txt");
+  log_action(htmlentities($session->active_username),"deleted the reply -> ".htmlentities($reply->text)."",$logfile = "../logs/logs.txt");
 
     $session->message("Reply successfully deleted. Mail notice has been sent to the user.");
 

@@ -23,15 +23,15 @@ class Auth
       return $result;
     }
 
-    public static function find_token_by_username($username,$token,$expired)
+    public static function find_username_by_token($token,$expired)
     {
       global $db;
 
       $expired = (int)$expired;
 
-      $sql = "SELECT * FROM login_auth WHERE username= ? AND token= ? AND is_expired= ? LIMIT 1";
+      $sql = "SELECT * FROM login_auth WHERE token= ? AND is_expired= ? LIMIT 1";
       $stmt = $db->prepare($sql);//prepared statement
-      $stmt->bind_param("ssi", $username,$token,$expired);//bind params
+      $stmt->bind_param("si", $token,$expired);//bind params
       $stmt->execute();//execute query
       $result = $stmt->get_result();//return results
 
@@ -50,13 +50,14 @@ class Auth
         return $result;
     }
 
-    public function update_name($username)
+    public function update_name($username,$auth_username)
     {
       global $db;
+      global $session;
 
       $sql = "UPDATE login_auth SET username = ? WHERE username = ?";
       $stmt = $db->prepare($sql);//prepared statement
-      $stmt->bind_param("ss", $username,$_COOKIE['tsp_username']);//bind params
+      $stmt->bind_param("ss", $username,$auth_username);//bind params
       $stmt->execute();//execute query
     }
 

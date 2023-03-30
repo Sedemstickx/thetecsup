@@ -2,7 +2,7 @@
 <?php $page_title = "Admin"; ?>
 
 <?php
-$admin_name = $_COOKIE['tsp_username'];
+$admin_name = $session->active_username;
 
 //record user admin page entry.
  if ($session->is_admin_logged_in() && isset($_GET['login']) && $_GET['login'] == 'true') {

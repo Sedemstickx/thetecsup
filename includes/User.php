@@ -392,7 +392,7 @@ class User
       global $db;
 
       //Check if username macthes a user in the database.
-      $sql = "SELECT id,block,admin FROM users WHERE username= ? LIMIT 1";
+      $sql = "SELECT id,username,block,admin FROM users WHERE username= ? LIMIT 1";
       $stmt = $db->prepare($sql);//prepared statement
       $stmt->bind_param("s", $username);//bind params
       $stmt->execute();//execute query

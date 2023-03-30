@@ -11,7 +11,7 @@ $logfile = "../logs/logs.txt";
  	file_put_contents($logfile, '');
 
     //Record user who cleared previous log info in the log file.
- 	log_action(htmlentities($cookie_username),"cleared logs",$logfile);
+ 	log_action(htmlentities($session->active_username),"cleared logs",$logfile);
 
     //Reload page to a fresh one so that the url wouldn't contain "clear=true" anymore.
  	redirect_to("logfile");

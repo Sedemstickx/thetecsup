@@ -18,9 +18,6 @@ if (isset($_POST['submit']) && csrf_protect()){
 
     $cookie_expire_time = time() + (172800 * 365);// 2 years.
 
-    //store userame in browser cookie.
-    setcookie("tsp_username", $_SESSION["username"], $cookie_expire_time);
-
     //store login token in cookies
     setcookie("tsp_token", $token, $cookie_expire_time);
 

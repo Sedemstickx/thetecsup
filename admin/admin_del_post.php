@@ -44,7 +44,7 @@ if ($post == null) {
   send_email($user->email,"Deleted post",$message);
   	
   //Record Admin who deleted the post.
-  log_action(htmlentities($_COOKIE['tsp_username']),"deleted the post -> ".htmlentities($post->title)."",$logfile = "../logs/logs.txt");
+  log_action(htmlentities($session->active_username),"deleted the post -> ".htmlentities($post->title)."",$logfile = "../logs/logs.txt");
 
     $session->message("Question successfully deleted. Mail notice has been sent to the user.");
 
