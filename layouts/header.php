@@ -26,6 +26,9 @@ if ($session->is_logged_in()){
  <meta name="author" content="Sedem Pious Kwame Datsa">
  <meta property="og:image" content="https://thetecsup.com/images/thetecsup_logo_icon.png">
  <link rel="stylesheet" href="styles/style.css?v=<?php echo filemtime("styles/style.css"); ?>" type="text/css" media="all">
+ <link rel="manifest" href="manifest.json">
+ <meta name="theme-color" content="#1e2933">
+ <link rel="apple-touch-icon" href="images/thetecsup_logo_icon.png">
  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"> 
  <link rel="icon" type="image/png" href="images/thetecsup_logo_icon.png">
  <link rel="shortcut icon" type="image/x-icon" href="images/thetecsup_icon.ico" sizes="32x32"> 

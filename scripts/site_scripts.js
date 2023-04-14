@@ -3,6 +3,23 @@ thetecsup javascript codes.
 @author Sedem Datsa <sedemdatsa69@gmail.com>
 */
 
+
+//Register service worker for PWA
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js").then(registration => {
+  console.log("Service Worker Registered");
+
+  console.log(registration);
+  }).catch(error => {
+
+  console.log("Service worker could not register: "+error);
+
+  });
+} else {
+  console.log("Service worker not supported in this browser");
+}
+
+
 //Toggle between showing and hiding the navigation menu link when user clicks on menu button.
 function showMenu() {
   $('#right-nav').toggleClass('show-nav-right');
