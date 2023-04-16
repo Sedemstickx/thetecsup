@@ -3,7 +3,7 @@
     "short_name": "tecsup",
     "start_url": ".",
     "background_color": "#ffffff",
-    "theme_color": "#1e2933",
+    "theme_color": "#ffffff",
     "display": "standalone",
     "icons": [
         {

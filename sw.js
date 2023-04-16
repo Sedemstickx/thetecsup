@@ -3,7 +3,7 @@ self.addEventListener("install", e => {
     e.waitUntil(
         caches.open("pwa-assets")
         .then(cache => {
-           return cache.addAll(["./", "./styles/style.css", "./scripts/jquery.min.js", "./scripts/site_scripts.js", "./scripts/clipboard.min.js", "./images/thetecsup_logo_icon.png", "./images/profile.jpg"]);
+        return cache.addAll(["./", "./index", "./styles/style.css", "./images/thetecsup_logo_icon.png", "./scripts/jquery.min.js", "./scripts/site_scripts.js", "./scripts/clipboard.min.js", "./offline.html"]);
         })
     );
 });
@@ -12,7 +12,12 @@ self.addEventListener("install", e => {
 self.addEventListener("fetch", e => {
     e.respondWith(
         caches.match(e.request).then(response => {
+            // serve cached url or serve request from network if url isn't cached
             return response || fetch(e.request); 
-        })
+        }).catch(() => {
+            //fall back url for when request fails
+            return caches.match('./offline.html');
+         }
+        )
     );
 });
