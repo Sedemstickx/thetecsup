@@ -20,6 +20,8 @@ $admins_bold ="";
  <link rel="stylesheet" href="../styles/style.css?v=<?php echo filemtime("../styles/style.css"); ?>" type="text/css" media="all">
  <link rel="icon" type="image/jpg" href="../images/thetecsup_logo_icon.png">
   <link rel="shortcut icon" type="image/x-icon" href="../images/thetecsup_icon.ico" sizes="32x32">
+  <link rel="manifest" href="../manifest.json">
+ <meta name="theme-color" content="#ffffff">
     <!--load all Font Awesome styles -->
   <link href="../fontawesome/css/all.css" rel="stylesheet">
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">

@@ -259,8 +259,8 @@ function send_email($to,$subject,$message,$from="hello@example.com")
   $phpmailer->Host = 'sandbox.smtp.mailtrap.io';
   $phpmailer->SMTPAuth = true;
   $phpmailer->Port = 2525;
-  $phpmailer->Username = 'd758d62e34a91d';
-  $phpmailer->Password = '6f806db6fe9f7e';
+  $phpmailer->Username = '';
+  $phpmailer->Password = '';
 
   //Send mail
   $phpmailer->setFrom($from,$site_title);
