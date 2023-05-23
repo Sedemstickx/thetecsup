@@ -889,8 +889,8 @@ class User
       $phpmailer->Host = 'sandbox.smtp.mailtrap.io';
       $phpmailer->SMTPAuth = true;
       $phpmailer->Port = 2525;
-      $phpmailer->Username = 'd758d62e34a91d';
-      $phpmailer->Password = '6f806db6fe9f7e';
+      $phpmailer->Username = '';
+      $phpmailer->Password = '';
 
       //mail details
       $phpmailer->setFrom($from,$site_title);
