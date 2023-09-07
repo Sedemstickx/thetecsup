@@ -19,6 +19,8 @@ $report_result = Report::find_all($per_page,$pagination->offset());
 
      <h1>Manage reports (<?php echo number_format(Report::count_all()); ?>)</h1>
 
+     <a style='color:Green;font-weight:bold;' href="export_report.php">Export reports</a>
+
 <?php echo display_message(); ?>
      
 <?php 

@@ -68,8 +68,33 @@ function log_action($Username, $log_action = "logged in",$logfile = "logs/logs.t
   fwrite($handle, $content);
   fclose($handle);
    }
-} 
+}
 
+//eg Export data as csv
+function export_csv($filename = "reports.csv")
+{
+    // send response headers to the browser
+    header( 'Content-Type: text/csv' );
+    header( 'Content-Disposition: attachment;filename='.$filename);
+
+   $fp = fopen('php://output', 'w');
+
+    //for columns
+    $header_list = array('ID','Subject','Message','Type','Date','time','Report-by');
+    fputcsv($fp, $header_list);
+
+      $list = Report::all();
+
+      foreach ($list as $fields) {
+        fputcsv($fp, $fields);
+      }
+
+      //output total to csv
+      $total = array('Total','count' => Report::count_all());
+      fputcsv($fp, $total);
+
+      fclose($fp);
+}
 
 //Refactored version to move_uploaded_file to given destination.Recommended upload_max_filesize should be 4MB. 
 function upload_to_destination($file_type,$file_size,$new_jpeg_image,$image_name,$temp_file,$upload_folder)

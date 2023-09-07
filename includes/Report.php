@@ -86,6 +86,20 @@ class Report
       return $result;
     }
 
+    // for ccsv export
+    public static function all()
+    {
+      global $db;
+
+      //select all replies rows from database.
+      $sql = "SELECT reports.id,reports.subject,reports.message,reports.type,reports.date,reports.time,users.username FROM reports JOIN users ON reports.userid = users.id ORDER BY id DESC";
+      $stmt = $db->prepare($sql);//prepared statement
+      $stmt->execute();//execute query
+      $result = $stmt->get_result();//return results
+
+      return $result;
+    }
+
     public static function find_by_id($id=0)
     {
       global $db;
@@ -167,5 +181,32 @@ class Report
       $user_report_link = "report?uid=".urlencode($user_id)."&type=user";
 
       return $user_report_link;
+    }
+
+    public function export_csv()
+    {
+      $filename = "thetecsup-reports.csv";
+
+        // send response headers to the browser
+        header( 'Content-Type: text/csv' );
+        header( 'Content-Disposition: attachment;filename='.$filename);
+
+      $fp = fopen('php://output', 'w');
+
+        //for columns
+        $header_list = array('ID','Subject','Message','Type','Date','time','Report-by');
+        fputcsv($fp, $header_list);
+
+          $list = self::all();
+
+          foreach ($list as $fields) {
+            fputcsv($fp, $fields);
+          }
+
+          //output total to csv
+          $total = array('Total','count' => self::count_all());
+          fputcsv($fp, $total);
+
+          fclose($fp);
     }
 }
